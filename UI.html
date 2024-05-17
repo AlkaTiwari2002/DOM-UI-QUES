@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Capitalize</h1>
+        <input type="text" placeholder="Enter" id="input" />
+        <button id="reverse">Reverse</button>
+        <button id="reWord">Reverse Word</button>
+    </div>
+    <div id="output"></div>
+    <script>
+        let input = document.getElementById("input");
+        let output = document.getElementById("output");
+        let reverseBtn = document.getElementById("reverse");
+        let reWordBtn = document.getElementById("reWord");
+
+        reverseBtn.addEventListener("click", () => {
+            let inputVal = input.value;
+            let result1 = reverse(inputVal);
+            output.innerHTML = `<h2>${result1}</h2>`;
+        });
+
+        reWordBtn.addEventListener("click", () => {
+            let inputVal = input.value;
+            let result = reverseByWord(inputVal);
+            output.innerHTML = `<h2>${result}</h2>`;
+        });
+
+        function reverse(str) {
+            return str.split("").reverse().join("");
+        }
+
+        function reverseByWord(sentence) {
+            const words = sentence.split(" ");
+            const reverseWords = words.reverse();
+            const reverseSentence = reverseWords.join(" ");
+            return reverseSentence;
+        }
+    </script>
+</body>
+</html>
